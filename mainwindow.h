@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QAbstractSocket>
 
 namespace Ui {
 class MainWindow;
@@ -17,14 +18,17 @@ public:
   ~MainWindow();
 
 private slots:
-  void on_toolButton_3_clicked();
   void onBtnSingleSendClicked();
   void onCheckBoxAllClicked(bool checked);
   void onBtnAddClicked(void);
   void onBtnRemoveClicked(void);
   void onBtnConnectClicked(void);
   void onBtnDisconnectClicked(void);
+  void onBtnSendAllClicked();
   void onSocketConnected();
+  void onSocketDisconnected();
+  void onSocketError(QAbstractSocket::SocketError error);
+  void onSocketReadyRead();
 
 private:
   void listWidgetAddItemWidget();
